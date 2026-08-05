@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modal Component</title>
+	<!-- CSS STYLING -->
+	<style>
+		body {
+			font-family: system-ui, sans-serif;
+			padding: 2rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		/* BACKDROP OVERLAY */
+		.modal-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+			/* Hidden by default */
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.2s ease-in-out;
+		}
+		
+		.modal-overlay.is-open {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		
+		/* MODAL BUTTON */
+		#openModalBtn {
+			background-color: #3b82f6;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 30px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background-color 0.2s ease;
+		}
+		
+		#openModalBtn:hover {
+			background-color: #2563eb;
+		}
+		
+		/* INNER DIALOG BOX */
+		.modal-card {
+			background: #ffffff;
+			padding: 1.5rem;
+			border-radius: 8px;
+			width: 90%;
+			max-width: 400px;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+		}
+		
+		.modal-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		
+		.close-btn {
+			background: none;
+			border: none;
+			font-size: 1.5rem;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<!-- HTML STRUCTURE -->
+	<button id="openModalBtn">Open Modal</button>
+	
+	<!-- Modal Markup -->
+	<div class="modal-overlay" id="modalOverlay">
+		<div class="modal-card">
+			<div class="modal-header">
+				<h3>Modal Title</h3>
+				<button class="close-btn" id="closeModalBtn">&times;</button>
+			</div>
+			<p>This is a modal dialog. Click outside or press Escape to close.</p>
+		</div>
+	</div>
+	
+	<!-- JS LOGIC -->
+	<script>
+		const openBtn = document.getElementById('openModalBtn');
+		const closeBtn = document.getElementById('closeModalBtn');
+		const overlay = document.getElementById('modalOverlay');
+		
+		// Functions to toggle state
+		function openModal() {
+			overlay.classList.add('is-open');
+		}
+		function closeModal() {
+			overlay.classList.remove('is-open');
+		}
+		
+		// Event Listeners
+		openBtn.addEventListener('click', openModal);
+		closeBtn.addEventListener('click', closeModal);
+		
+		// Close when clicking the backdrop
+		overlay.addEventListener('click', (event) => {
+			if (event.target === overlay) {
+				closeModal();
+			}
+		});
+		
+		// Close on Escape Key press
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && overlay.classList.contains('is-open')) {
+				closeModal();
+			}
+		});
+	</script>
+</body>
