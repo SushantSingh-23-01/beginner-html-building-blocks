@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Tabbed Interface</title>
+        <style>
+            /* Reset & general page setup */
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 40px;
+                background-color: #f9f9f9;
+            }
+
+            /* Container to keep everything centered */
+            .tabs-container {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: white;
+            }
+
+            /* Style the button row */
+            .tab-menu {
+                display: flex;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .tab-menu button {
+                background-color: #f1f1f1;
+                border: 1px solid #ccc;
+                border-bottom: none;
+                outline: none;
+                cursor: pointer;
+                padding: 12px 20px;
+                font-size: 16px;
+                margin-right: 4px;
+                border-radius: 6px 6px 0 0;
+                transition: background-color 0.2s;
+            }
+
+            .tab-menu button:hover {
+                background-color: #e2e2e2;
+            }
+
+            .tab-menu button.active {
+                background-color: white;
+                border-bottom: 1px solid white;    /* Hides the bottom line to blend into content */
+                margin-bottom: -1px;    /* Overlaps container border */
+                font-weight: bold;
+                color: #007bff;
+            }
+
+            /* Style the content panels */
+            .tab-content {
+                display: none;    /* Hide all content panels by default */
+                padding: 24px;
+                border: 1px solid #ccc;
+                border-top: none;
+                border-radius: 0 0 6px 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tabs-container">
+            
+            <!-- Tab Buttons -->
+            <div class="tab-menu">
+            <button class="tab-link active" onclick="openTab(event, 'Home')">Home</button>
+            <button class="tab-link" onclick="openTab(event, 'Profile')">Profile</button>
+            <button class="tab-link" onclick="openTab(event, 'Settings')">Settings</button>
+            </div>
+
+            <!-- Tab Content Panels -->
+            <div id="Home" class="tab-content" style="display: block;">
+            <h2>Home</h2>
+            <p>Welcome to the home tab! This panel is visible by default when the page loads.</p>
+            </div>
+
+            <div id="Profile" class="tab-content">
+            <h2>Profile</h2>
+            <p>This is your profile panel. You can display user info, avatars, or bios here.</p>
+            </div>
+
+            <div id="Settings" class="tab-content">
+            <h2>Settings</h2>
+            <p>Manage your preferences, change your password, or configure notification settings.</p>
+            </div>
+        </div>
+
+        <!-- JavaScript Logic -->
+        <script>
+            function openTab(evt, tabName) {
+            // 1. Hide all tab content elements
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = "none";
+            }
+
+            // 2. Remove the "active" class from all tab buttons
+            const tabLinks = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active");
+            }
+
+            // 3. Show the selected tab content box
+            document.getElementById(tabName).style.display = "block";
+
+            // 4. Add the "active" class to the button that was clicked
+            evt.currentTarget.classList.add("active");
+            }
+        </script>
+    </body>
+</html>
