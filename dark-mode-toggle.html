@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dark Mode with localStorage</title>
+        <style>
+            /* 1. Define default (Light Mode) colors on :root */
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #1a1a1a;
+                --card-bg: #f3f4f6;
+                --btn-bg: #e5e7eb;
+                --btn-text: #1a1a1a;
+            }
+
+            /* 2. Overwrite colors when the dark-theme class is applied */
+            body.dark-theme {
+                --bg-color: #121212;
+                --text-color: #f1f1f1;
+                --card-bg: #1e1e1e;
+                --btn-bg: #374151;
+                --btn-text: #ffffff;
+            }
+            
+            /* 3. Apply the variables to your elements */
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                font-family: system-ui, -apple-system, sans-serif;
+                margin: 0;
+                padding: 2rem;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            button {
+                background-color: var(--btn-bg);
+                color: var(--btn-text);
+                border: none;
+                padding: 10px 16px;
+                font-size: 1rem;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .card {
+                background-color: var(--card-bg);
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin-top: 1.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="theme-toggle">🌙 Dark Mode</button>
+        <div class="card">
+            <h2>Persistent Theme</h2>
+            <p>Toggle dark mode and refresh the page—your selection will remain saved!</p>
+        </div>
+    </body>
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+
+        // 1. Check saved preference on initial page load
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            toggleBtn.textContent = '☀️ Light Mode';
+        }
+
+        // 2. Handle button click
+        toggleBtn.addEventListener('click', () =>{
+            // Toggle class on the body
+            document.body.classList.toggle('dark-theme');
+            
+            const isDarkmode = document.body.classList.contains('dark-theme');
+
+            // Update button text depending on current theme
+            if (isDarkmode) {
+                toggleBtn.textContent = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.textContent = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        })
+    </script>
+</html>
