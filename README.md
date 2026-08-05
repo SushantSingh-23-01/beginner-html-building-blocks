@@ -14,3 +14,11 @@ This repository serves as a personal project log to document frontend practice a
 
 - **No External Dependencies**: Built entirely with native HTML5, modern CSS (Flexbox, Grid, CSS Variables), and vanilla JavaScript.
 - **Single-File Structure**: CSS and JavaScript are embedded within each HTML file to make each component easily portable and easy to run locally without setup.
+
+## Usage
+
+1. Clone or download directory
+  ```bash
+  git clone https://github.com/SushantSingh-23-01/beginner-html-building-blocks.git
+  ```
+2. Open any `.html` file in preferred browser.
