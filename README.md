@@ -10,6 +10,7 @@ This repository serves as a personal project log to document frontend practice a
 - [View Toast Notifications](./toast-notifications.html) : A dynamic notification system with automated dismissal and exit animations.
 - [View Tabbed Interface](./tabbed-interface.html) : A tabbed interface switching active content panels via DOM manipulation.
 
-  ## Technical Details
-  - **No External Dependencies**: Built entirely with native HTML5, modern CSS (Flexbox, Grid, CSS Variables), and vanilla JavaScript.
-  - **Single-File Structure**: CSS and JavaScript are embedded within each HTML file to make each component easily portable and easy to run locally without setup.
+## Technical Details
+
+- **No External Dependencies**: Built entirely with native HTML5, modern CSS (Flexbox, Grid, CSS Variables), and vanilla JavaScript.
+- **Single-File Structure**: CSS and JavaScript are embedded within each HTML file to make each component easily portable and easy to run locally without setup.
