@@ -9,6 +9,7 @@ This repository serves as a personal project log to document frontend practice a
 - [View Modal Dialog](./modal-dialog.html) : An accessible pop-up overlay featuring backdrop dismissal and Escape key controls.
 - [View Toast Notifications](./toast-notifications.html) : A dynamic notification system with automated dismissal and exit animations.
 - [View Tabbed Interface](./tabbed-interface.html) : A tabbed interface switching active content panels via DOM manipulation.
+- [View Search Bar Auto-complete](./search-bar-autocomplete.html): Purpose: Creates a styled search input with interactive real-time suggestion filtering and state management.
 
 ## Technical Details
 
