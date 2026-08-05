@@ -7,8 +7,8 @@ This repository serves as a personal project log to document frontend practice a
 
 - [View Dark Mode](./dark-mode-toggle.html) : A theme switcher using CSS custom properties and `localStorage` for state persistence.
 - [View Modal Dialog](./modal-dialog.html) : An accessible pop-up overlay featuring backdrop dismissal and Escape key controls.
-- [View Toast Notifications](./toast-notifications.html): A dynamic notification system with automated dismissal and exit animations.
-- [View Tabbed Interface](./tabbed-interface.html): A tabbed interface switching active content panels via DOM manipulation.
+- [View Toast Notifications](./toast-notifications.html) : A dynamic notification system with automated dismissal and exit animations.
+- [View Tabbed Interface](./tabbed-interface.html) : A tabbed interface switching active content panels via DOM manipulation.
 
   ## Technical Details
   - **No External Dependencies**: Built entirely with native HTML5, modern CSS (Flexbox, Grid, CSS Variables), and vanilla JavaScript.
